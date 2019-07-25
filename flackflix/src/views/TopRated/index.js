@@ -9,11 +9,16 @@ const TopRated = () => {
     }&language=en-US&page=1`,
     []
   );
-  return (
-    <div>
-      <h1>Top Rated</h1>
-    </div>
-  );
+  let movies = null;
+
+  if (movieData) {
+    movies = movieData.results.map(movie => movie.title);
+  }
+  let content = <h2>Loading...</h2>;
+  if (!loading && movies) {
+    content = movies.map(movie => <h2>{movie}</h2>);
+  }
+  return content;
 };
 
 export default TopRated;

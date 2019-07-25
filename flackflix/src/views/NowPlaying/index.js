@@ -8,11 +8,16 @@ const NowPlaying = () => {
     }&language=en-US&page=1`,
     []
   );
-  return (
-    <div>
-      <h1>Now Playing</h1>
-    </div>
-  );
+  let movies = null;
+
+  if (movieData) {
+    movies = movieData.results.map(movie => movie.title);
+  }
+  let content = <h2>Loading...</h2>;
+  if (!loading && movies) {
+    content = movies.map(movie => <h2>{movie}</h2>);
+  }
+  return content;
 };
 
 export default NowPlaying;
