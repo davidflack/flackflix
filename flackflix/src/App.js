@@ -7,10 +7,12 @@ import Popular from "./views/Popular";
 import TopRated from "./views/TopRated";
 import NowPlaying from "./views/NowPlaying";
 import ErrorPage from "./views/ErrorPage";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/popular" render={props => <Popular {...props} />} />

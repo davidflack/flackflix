@@ -28,7 +28,7 @@ const NowPlaying = () => {
   }
   return (
     <>
-      <h1>Page: {pageNum}</h1>
+      <h2>Page: {pageNum}</h2>
       {content}
       <button onClick={decrementPage}>Back</button>
       <button onClick={incrementPage}>Next</button>
