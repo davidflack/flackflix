@@ -1,6 +1,9 @@
 import React from "react";
+import { Route, NavLink } from "react-router-dom";
 import { baseUrl, posterUrl, backdropUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
+import Related from "../Related";
+import Recommended from "../Recommended";
 const MovieDetails = props => {
   const [loading, movieData] = useFetch(
     `${baseUrl}/${props.match.params.movieId}?api_key=${
@@ -43,6 +46,22 @@ const MovieDetails = props => {
         <img
           src={`${backdropUrl}/${backdrop_path}`}
           alt={`Backdrop for ${title}.`}
+        />
+        <NavLink to={`/movie/${props.match.params.movieId}`}>
+          More Like This
+        </NavLink>
+        <NavLink to={`/movie/${props.match.params.movieId}/recommended`}>
+          Recommended
+        </NavLink>
+        <Route
+          exact
+          path="/movie/:movieId"
+          render={props => <Related {...props} />}
+        />
+        <Route
+          exact
+          path="/movie/:movieId/recommended"
+          render={props => <Recommended {...props} />}
         />
       </>
     );
