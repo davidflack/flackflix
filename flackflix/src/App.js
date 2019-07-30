@@ -14,7 +14,6 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route exact path="/" component={Landing} />
         <Route path="/popular" render={props => <Popular {...props} />} />
         <Route path="/top-rated" render={props => <TopRated {...props} />} />
         <Route
