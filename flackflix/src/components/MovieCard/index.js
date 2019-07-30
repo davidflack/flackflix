@@ -8,8 +8,7 @@ const MovieCard = props => {
     release_date,
     poster_path,
     id,
-    genre_ids,
-    backdrop_path
+    genre_ids
   } = props.movie;
   const genreList = genre_ids.map(id => genres[id]);
   return (
