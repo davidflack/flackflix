@@ -1,5 +1,5 @@
 import React from "react";
-import { genres } from "../../variables";
+import { genres, posterUrl } from "../../variables";
 const MovieCard = props => {
   const {
     title,
@@ -13,12 +13,13 @@ const MovieCard = props => {
   const genreList = genre_ids.map(id => genres[id]);
   return (
     <div>
+      <img src={`${posterUrl}/${poster_path}`} alt={`Poster for ${title}.`} />
       <h2>{title}</h2>
       <h3>{vote_average} user score</h3>
       <h3>Release Date: {release_date}</h3>
       <ul>
         {genreList.map(genre => (
-          <li>{genre}</li>
+          <li key={genre}>{genre}</li>
         ))}
       </ul>
     </div>
@@ -26,10 +27,3 @@ const MovieCard = props => {
 };
 
 export default MovieCard;
-// backdrop_path: "/af98P1bc7lJsFjhHOVWXQgNNgSQ.jpg"
-// genre_ids: (3) [18, 36, 10752]
-// id: 424
-// poster_path: "/yPisjyLweCl1tbgwgtzBCNCBle.jpg"
-// release_date: "1993-12-15"
-// title: "Schindler's List"
-// vote_average: 8.5

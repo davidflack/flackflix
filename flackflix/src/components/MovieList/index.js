@@ -26,9 +26,9 @@ const MovieList = props => {
   return (
     <>
       <h2>Page: {pageNum}</h2>
-      {content}
       <button onClick={decrementPage}>Back</button>
       <button onClick={incrementPage}>Next</button>
+      {content}
     </>
   );
 };
