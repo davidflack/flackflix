@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { genres, posterUrl } from "../../variables";
 const MovieCard = props => {
   const {
@@ -22,6 +23,7 @@ const MovieCard = props => {
           <li key={genre}>{genre}</li>
         ))}
       </ul>
+      <Link to={`/movie/${id}`}>More Details</Link>
     </div>
   );
 };
