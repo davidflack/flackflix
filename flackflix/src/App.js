@@ -9,7 +9,7 @@ import NowPlaying from "./views/NowPlaying";
 import ErrorPage from "./views/ErrorPage";
 import NavBar from "./components/NavBar";
 import MovieDetails from "./views/MovieDetails";
-import Related from "./views/Related";
+import SearchResults from "./views/SearchResults";
 
 function App() {
   return (
@@ -24,15 +24,18 @@ function App() {
           render={props => <NowPlaying {...props} />}
         />
         <Route
-          // exact
           path="/movie/:movieId"
           render={props => <MovieDetails {...props} />}
         />
-        {/* <Route
-          exact
-          path="/movie/:movieId/related"
-          render={props => <Related {...props} />}
-        /> */}
+        <Route
+          path="/search/:searchQuery"
+          render={props => (
+            <SearchResults
+              searchQuery={props.match.params.searchQuery}
+              {...props}
+            />
+          )}
+        />
         <Route path="*" render={props => <ErrorPage {...props} />} />
       </Switch>
     </div>

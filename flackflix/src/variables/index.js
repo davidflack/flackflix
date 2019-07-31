@@ -1,4 +1,7 @@
 export const baseUrl = "https://api.themoviedb.org/3/movie";
+export const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${
+  process.env.REACT_APP_API_KEY
+}&language=en-US&query=`;
 export const posterUrl = "https://image.tmdb.org/t/p/w342";
 export const backdropUrl = "https://image.tmdb.org/t/p/w1280";
 export const genres = {

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import MovieCard from "../MovieCard";
 import { useFetch } from "../../hooks/useFetch";
 
 const MovieList = props => {
   const [pageNum, setPageNum] = useState(1);
   const [loading, movieData] = useFetch(`${props.url}&page=${pageNum}`, [
-    pageNum
+    pageNum,
+    props.match.params.searchQuery
   ]);
   const incrementPage = e => {
     e.preventDefault();
@@ -39,4 +41,4 @@ const MovieList = props => {
   );
 };
 
-export default MovieList;
+export default withRouter(MovieList);
