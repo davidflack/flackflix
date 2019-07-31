@@ -7,7 +7,8 @@ const MovieList = props => {
   const [pageNum, setPageNum] = useState(1);
   const [loading, movieData] = useFetch(`${props.url}&page=${pageNum}`, [
     pageNum,
-    props.match.params.searchQuery
+    props.match.params.searchQuery,
+    props.match.params.movieId
   ]);
   const incrementPage = e => {
     e.preventDefault();

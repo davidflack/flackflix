@@ -9,7 +9,7 @@ const MovieDetails = props => {
     `${baseUrl}/${props.match.params.movieId}?api_key=${
       process.env.REACT_APP_API_KEY
     }&language=en-US`,
-    []
+    [props.match.params.movieId]
   );
   let movie = null;
   if (movieData) {
