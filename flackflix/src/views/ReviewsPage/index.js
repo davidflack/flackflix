@@ -1,8 +1,17 @@
 import React, { useState } from "react";
+import Review from "../../components/Review";
 import { baseUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 const Reviews = props => {
   const [pageNum, setPageNum] = useState(1);
+  const incrementPage = e => {
+    e.preventDefault();
+    setPageNum(pageNum + 1);
+  };
+  const decrementPage = e => {
+    e.preventDefault();
+    setPageNum(pageNum - 1);
+  };
   const [loading, reviewData] = useFetch(
     `${baseUrl}/${props.movieId}/reviews?api_key=${
       process.env.REACT_APP_API_KEY
@@ -19,13 +28,36 @@ const Reviews = props => {
   if (!loading && reviews) {
     if (reviewData.results.length === 0) {
       content = <h2>There are no reviews for this film.</h2>;
+    } else if (reviewData.total_pages === 1) {
+      content = reviews.map(review => (
+        <Review
+          key={review.id}
+          author={review.author}
+          content={review.content}
+        />
+      ));
     } else {
-      content = reviews.map(review => <h2>{review.content}</h2>);
+      content = (
+        <>
+          <button onClick={decrementPage} disabled={pageNum <= 1}>
+            Back
+          </button>
+          <button onClick={incrementPage} disabled={pageNum >= maxPages}>
+            Next
+          </button>
+          {reviews.map(review => (
+            <Review
+              key={review.id}
+              author={review.author}
+              content={review.content}
+            />
+          ))}
+        </>
+      );
     }
-    console.log("URL: ", `${baseUrl}/${props.movieId}/reviews`);
     console.log("REVIEW DATA:", reviewData);
   }
-  return content;
+  return <>{content}</>;
 };
 
 export default Reviews;
