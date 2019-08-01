@@ -12,22 +12,22 @@ const NavBar = props => {
     setSearchText("");
   };
   return (
-    <div>
-      <h1>FlackFlix</h1>
+    <div className="navbar-container">
+      <h1 className="logo">FlackFlix</h1>
       <div className="nav-link-container">
         <NavLink to="/popular">Popular</NavLink>
         <NavLink to="/top-rated">Top Rated</NavLink>
         <NavLink to="/now-playing">Now Playing</NavLink>
-        <form onSubmit={search}>
-          <input
-            type="text"
-            name="searchText"
-            value={searchText}
-            onChange={handleChange}
-            placeholder="Search movies..."
-          />
-        </form>
       </div>
+      <form className="searchbar-container" onSubmit={search}>
+        <input
+          type="text"
+          name="searchText"
+          value={searchText}
+          onChange={handleChange}
+          placeholder="Search Movies"
+        />
+      </form>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
 import Landing from "./views/Landing";
@@ -11,6 +10,7 @@ import NavBar from "./components/NavBar";
 import MovieDetails from "./views/MovieDetails";
 import SearchResults from "./views/SearchResults";
 
+import "./main-styles/App.scss";
 function App() {
   return (
     <div className="App">

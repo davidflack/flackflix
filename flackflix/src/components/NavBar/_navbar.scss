@@ -1,0 +1,45 @@
+@import "../../main-styles/Variables.scss";
+
+.navbar-container {
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    color: $green-highlight;
+    font-weight: 700;
+    font-size: 4rem;
+  }
+  .nav-link-container {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    a {
+      color: white;
+      text-decoration: none;
+      padding-bottom: 2px;
+      font-size: 2rem;
+      transition: all 0.25s;
+    }
+    .active {
+      color: $green-highlight;
+      border-bottom: 2px solid $green-highlight;
+    }
+  } // .nav-link-container
+
+  .searchbar-container {
+    input {
+      padding: 10px 20px;
+      font-family: $app-font;
+      font-size: 1.5rem;
+      text-align: center;
+      background-color: $input-background;
+      color: white;
+      border: 2px solid white;
+      border-radius: 3px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

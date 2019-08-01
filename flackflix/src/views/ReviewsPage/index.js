@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Loading from "../../components/Loading";
 import Review from "../../components/Review";
 import { baseUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
@@ -24,7 +25,7 @@ const Reviews = props => {
     reviews = reviewData.results;
     maxPages = reviewData.total_pages;
   }
-  let content = <h2>Loading...</h2>;
+  let content = <Loading />;
   if (!loading && reviews) {
     if (reviewData.results.length === 0) {
       content = <h2>There are no reviews for this film.</h2>;
