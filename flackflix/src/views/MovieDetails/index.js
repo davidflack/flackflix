@@ -4,6 +4,7 @@ import { baseUrl, posterUrl, backdropUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 import Related from "../Related";
 import Recommended from "../Recommended";
+import Reviews from "../ReviewsPage";
 const MovieDetails = props => {
   const [loading, movieData] = useFetch(
     `${baseUrl}/${props.match.params.movieId}?api_key=${
@@ -53,6 +54,9 @@ const MovieDetails = props => {
         <NavLink to={`/movie/${props.match.params.movieId}/recommended`}>
           Recommended
         </NavLink>
+        <NavLink to={`/movie/${props.match.params.movieId}/reviews`}>
+          Reviews
+        </NavLink>
         <Route
           exact
           path="/movie/:movieId"
@@ -62,6 +66,13 @@ const MovieDetails = props => {
           exact
           path="/movie/:movieId/recommended"
           render={props => <Recommended {...props} />}
+        />
+        <Route
+          exact
+          path="/movie/:movieId/reviews"
+          render={props => (
+            <Reviews movieId={props.match.params.movieId} {...props} />
+          )}
         />
       </>
     );
