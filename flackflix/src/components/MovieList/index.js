@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import MovieCard from "../MovieCard";
+import Loading from "../Loading";
 import { useFetch } from "../../hooks/useFetch";
 
 const MovieList = props => {
@@ -24,7 +25,7 @@ const MovieList = props => {
     movies = movieData.results;
     maxPages = movieData.total_pages;
   }
-  let content = <h2>Loading...</h2>;
+  let content = <Loading />;
   if (!loading && movies) {
     content = movies.map(movie => <MovieCard movie={movie} key={movie.id} />);
   }

@@ -2,6 +2,7 @@ import React from "react";
 import { Route, NavLink } from "react-router-dom";
 import { baseUrl, posterUrl, backdropUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
+import Loading from "../../components/Loading";
 import Related from "../Related";
 import Recommended from "../Recommended";
 import Reviews from "../ReviewsPage";
@@ -16,7 +17,7 @@ const MovieDetails = props => {
   if (movieData) {
     movie = movieData;
   }
-  let content = <h2>Loading...</h2>;
+  let content = <Loading />;
   if (!loading && movie) {
     const {
       title,
