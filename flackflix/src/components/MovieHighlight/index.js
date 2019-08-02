@@ -7,7 +7,6 @@ const MovieHighlight = props => {
     id,
     title,
     backdrop_path,
-    overview,
     genre_ids,
     release_date,
     vote_average
