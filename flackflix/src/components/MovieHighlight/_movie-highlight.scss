@@ -1,1 +1,21 @@
 @import "../../main-styles/Variables.scss";
+
+.movie-highlight {
+  border-radius: 10px;
+  height: 90vh;
+  margin-bottom: 20px;
+  &:hover {
+    transition: 0.2s ease-in-out;
+    transform: scale(1.01);
+  }
+  .highlight-info {
+    padding-top: 50px;
+    .highlight-title {
+      font-size: 5rem;
+      font-weight: 700;
+    }
+    .highlight-date-vote {
+      display: flex;
+    }
+  }
+}
