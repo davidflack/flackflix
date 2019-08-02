@@ -30,16 +30,17 @@ const MovieList = props => {
     content = movies.map(movie => <MovieCard movie={movie} key={movie.id} />);
   }
   return (
-    <>
-      <h2>Page: {pageNum}</h2>
-      <button onClick={decrementPage} disabled={pageNum <= 1}>
-        Back
-      </button>
-      <button onClick={incrementPage} disabled={pageNum >= maxPages}>
-        Next
-      </button>
-      {content}
-    </>
+    <div className="movie-list">
+      <div className="card-container">{content}</div>
+      <div className="button-container">
+        <button onClick={decrementPage} disabled={pageNum <= 1}>
+          Back
+        </button>
+        <button onClick={incrementPage} disabled={pageNum >= maxPages}>
+          Next
+        </button>
+      </div>
+    </div>
   );
 };
 
