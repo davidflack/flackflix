@@ -1,0 +1,13 @@
+@import "../../main-styles/Variables.scss";
+
+.movie-card {
+  width: 25%;
+  .card-img-container {
+    width: 90%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
