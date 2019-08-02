@@ -4,18 +4,43 @@
   border-radius: 10px;
   height: 90vh;
   margin-bottom: 20px;
+  box-shadow: $card-shadow;
+  transition: $card-hover-transition;
   &:hover {
-    transition: 0.2s ease-in-out;
     transform: scale(1.01);
+    box-shadow: $hover-shadow;
   }
   .highlight-info {
-    padding-top: 50px;
+    padding: 40vh 0px 0px 30px;
     .highlight-title {
       font-size: 5rem;
       font-weight: 700;
     }
     .highlight-date-vote {
       display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+      p {
+        margin-right: 20px;
+        font-size: 3rem;
+      }
+    } // .highlight-date-vote
+    .genre-list {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 30px;
+      li {
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+    } // .genre-list
+    .more-details-button {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: $green-highlight;
     }
-  }
+  } // .highlight-info
 }

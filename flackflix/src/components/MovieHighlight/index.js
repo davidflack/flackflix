@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { genres, posterUrl, backdropUrl } from "../../variables";
+import { genres, backdropUrl } from "../../variables";
 
 const MovieHighlight = props => {
   const {
@@ -23,16 +23,17 @@ const MovieHighlight = props => {
       <div className="highlight-info">
         <h2 className="highlight-title">{title}</h2>
         <div className="highlight-date-vote">
-          <p>{release_date}</p>
+          <p>{release_date.slice(0, 4)}</p>
           <p>{vote_average}/10</p>
         </div>
-        <ul>
+        <ul className="genre-list">
           {genreList.map(genre => (
             <li key={genre}>{genre}</li>
           ))}
         </ul>
-        <p>{overview}</p>
-        <Link to={`/movie/${id}`}>More Details</Link>
+        <Link to={`/movie/${id}`} className="more-details-button">
+          More Details
+        </Link>
       </div>
     </div>
   );
