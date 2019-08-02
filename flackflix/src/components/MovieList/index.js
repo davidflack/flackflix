@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
+import MovieHighlight from "../MovieHighlight";
 import MovieCard from "../MovieCard";
 import Loading from "../Loading";
 import { useFetch } from "../../hooks/useFetch";
@@ -27,11 +28,33 @@ const MovieList = props => {
   }
   let content = <Loading />;
   if (!loading && movies) {
-    content = movies.map(movie => <MovieCard movie={movie} key={movie.id} />);
+    if (pageNum === 1) {
+      const firstMovie = movies[0];
+      content = (
+        <>
+          <div className="highlight-container">
+            <MovieHighlight movie={firstMovie} />
+          </div>
+          <div className="card-container">
+            {movies.slice(1).map(movie => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+          </div>
+        </>
+      );
+    } else {
+      content = (
+        <div className="card-container">
+          {movies.map(movie => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
+        </div>
+      );
+    }
   }
   return (
     <div className="movie-list">
-      <div className="card-container">{content}</div>
+      {content}
       <div className="button-container">
         <button onClick={decrementPage} disabled={pageNum <= 1}>
           Back
