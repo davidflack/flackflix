@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, withRouter } from "react-router-dom";
 import { baseUrl, backdropUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 import Loading from "../../components/Loading";
@@ -50,16 +50,20 @@ const MovieDetails = props => {
             </ul>
             <p className="details-overview">{overview}</p>
           </div>
+          <div className="details-link-shadow">
+            <div className="details-link-container">
+              <NavLink exact to={`/movie/${props.match.params.movieId}`}>
+                More Like This
+              </NavLink>
+              <NavLink to={`/movie/${props.match.params.movieId}/recommended`}>
+                Recommended
+              </NavLink>
+              <NavLink to={`/movie/${props.match.params.movieId}/reviews`}>
+                Reviews
+              </NavLink>
+            </div>
+          </div>
         </div>
-        <NavLink to={`/movie/${props.match.params.movieId}`}>
-          More Like This
-        </NavLink>
-        <NavLink to={`/movie/${props.match.params.movieId}/recommended`}>
-          Recommended
-        </NavLink>
-        <NavLink to={`/movie/${props.match.params.movieId}/reviews`}>
-          Reviews
-        </NavLink>
         <Route
           exact
           path="/movie/:movieId"
@@ -83,4 +87,4 @@ const MovieDetails = props => {
   return <div>{content}</div>;
 };
 
-export default MovieDetails;
+export default withRouter(MovieDetails);

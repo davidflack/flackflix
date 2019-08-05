@@ -6,6 +6,9 @@
   margin-bottom: 20px;
   box-shadow: $card-shadow;
   transition: $card-hover-transition;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   &:hover {
     transform: scale(1.01);
     box-shadow: $hover-shadow;
@@ -39,5 +42,25 @@
       font-size: 2rem;
       width: 70%;
     }
+  } // .details-info
+  .details-link-shadow {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    .details-link-container {
+      width: 40%;
+      margin: 0 auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      a {
+        font-size: 2rem;
+        color: white;
+        text-decoration: none;
+      }
+      .active {
+        color: $green-highlight;
+      }
+    } // .details-link-container
   }
 }
