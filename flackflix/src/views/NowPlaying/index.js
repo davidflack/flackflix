@@ -6,6 +6,7 @@ const NowPlaying = () => {
   return (
     <>
       <MovieList
+        showHighlight={true}
         url={`${baseUrl}/now_playing?api_key=${
           process.env.REACT_APP_API_KEY
         }&language=en-US`}

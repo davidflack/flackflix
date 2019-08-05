@@ -1,0 +1,29 @@
+@import "../../main-styles/Variables.scss";
+
+.movie-details-container {
+  border-radius: 10px;
+  height: 90vh;
+  margin-bottom: 20px;
+  box-shadow: $card-shadow;
+  transition: $card-hover-transition;
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: $hover-shadow;
+  }
+  .details-info {
+    padding: 40vh 0px 0px 30px;
+    .details-title {
+      font-size: 5rem;
+      font-weight: 700;
+    }
+    .date-time-vote {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+      p {
+        margin-right: 20px;
+        font-size: 2rem;
+      }
+    }
+  }
+}

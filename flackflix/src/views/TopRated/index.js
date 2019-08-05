@@ -6,6 +6,7 @@ const TopRated = () => {
   return (
     <>
       <MovieList
+        showHighlight={true}
         url={`${baseUrl}/top_rated?api_key=${
           process.env.REACT_APP_API_KEY
         }&language=en-US`}

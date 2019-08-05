@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, NavLink } from "react-router-dom";
-import { baseUrl, posterUrl, backdropUrl } from "../../variables";
+import { baseUrl, backdropUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 import Loading from "../../components/Loading";
 import Related from "../Related";
@@ -22,7 +22,6 @@ const MovieDetails = props => {
     const {
       title,
       backdrop_path,
-      poster_path,
       overview,
       genres,
       release_date,
@@ -31,24 +30,28 @@ const MovieDetails = props => {
     } = movie;
     content = (
       <>
-        <h2>{title}</h2>
-        <div>
-          <p>{vote_average}/10</p>
-          <p>{release_date}</p>
-          <p>Runtime: {runtime} minutes</p>
+        <div
+          style={{
+            background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backdropUrl}/${backdrop_path})`
+          }}
+          className="movie-details-container"
+        >
+          <div className="details-info">
+            <h2 className="details-title">{title}</h2>
+            <div className="date-time-vote">
+              <p>{release_date}</p>
+              <p>{runtime} minutes</p>
+              <p>{vote_average}/10</p>
+            </div>
+            <p>{overview}</p>
+            <p>
+              Genres:{" "}
+              {genres.map(genre => (
+                <span>{genre.name} </span>
+              ))}
+            </p>
+          </div>
         </div>
-        <p>{overview}</p>
-        <p>
-          Genres:{" "}
-          {genres.map(genre => (
-            <span>{genre.name} </span>
-          ))}
-        </p>
-        <img src={`${posterUrl}/${poster_path}`} alt={`Poster for ${title}.`} />
-        <img
-          src={`${backdropUrl}/${backdrop_path}`}
-          alt={`Backdrop for ${title}.`}
-        />
         <NavLink to={`/movie/${props.match.params.movieId}`}>
           More Like This
         </NavLink>
