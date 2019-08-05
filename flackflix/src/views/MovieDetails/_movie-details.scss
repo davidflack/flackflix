@@ -15,6 +15,7 @@
     .details-title {
       font-size: 5rem;
       font-weight: 700;
+      margin-bottom: 5px;
     }
     .date-time-vote {
       display: flex;
@@ -24,6 +25,19 @@
         margin-right: 20px;
         font-size: 2rem;
       }
+    }
+    .genre-list {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 30px;
+      li {
+        margin-right: 10px;
+        font-size: 1.5rem;
+      }
+    } // .genre-list
+    .details-overview {
+      font-size: 2rem;
+      width: 70%;
     }
   }
 }

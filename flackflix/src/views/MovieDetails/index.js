@@ -43,13 +43,12 @@ const MovieDetails = props => {
               <p>{runtime} minutes</p>
               <p>{vote_average}/10</p>
             </div>
-            <p>{overview}</p>
-            <p>
-              Genres:{" "}
+            <ul className="genre-list">
               {genres.map(genre => (
-                <span>{genre.name} </span>
+                <li>{genre.name} </li>
               ))}
-            </p>
+            </ul>
+            <p className="details-overview">{overview}</p>
           </div>
         </div>
         <NavLink to={`/movie/${props.match.params.movieId}`}>
