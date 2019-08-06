@@ -5,7 +5,10 @@ const SearchResults = props => {
   return (
     <div>
       <h2>Search Results for "{props.searchQuery}"</h2>
-      <MovieList url={`${searchUrl}${props.match.params.searchQuery}`} />
+      <MovieList
+        showHighlight={true}
+        url={`${searchUrl}${props.match.params.searchQuery}`}
+      />
     </div>
   );
 };

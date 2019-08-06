@@ -28,7 +28,7 @@ const MovieList = props => {
   }
   let content = <Loading />;
   if (!loading && movies) {
-    if (pageNum === 1) {
+    if (pageNum === 1 && props.showHighlight === true) {
       const firstMovie = movies[0];
       content = (
         <>

@@ -6,6 +6,7 @@ const Related = props => {
     <div>
       <h2>More Like This</h2>
       <MovieList
+        showHighlight={false}
         url={`${baseUrl}/${props.match.params.movieId}/similar?api_key=${
           process.env.REACT_APP_API_KEY
         }&language=en-US`}

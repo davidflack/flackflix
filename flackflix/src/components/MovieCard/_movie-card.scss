@@ -2,12 +2,28 @@
 
 .movie-card {
   width: 25%;
+  margin-bottom: 20px;
   .card-img-container {
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 10px;
+    box-shadow: $card-shadow;
+    transition: $card-hover-transition;
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: $hover-shadow;
+    }
     img {
       width: 100%;
       height: auto;
     }
+  } // .card-img-container
+  .card-text-container {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
