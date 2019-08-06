@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, NavLink, withRouter } from "react-router-dom";
-import { baseUrl, backdropUrl, actorUrl } from "../../variables";
+import { baseUrl, backdropUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 import Loading from "../../components/Loading";
 import Related from "../Related";
@@ -46,7 +46,7 @@ const MovieDetails = props => {
             </div>
             <ul className="genre-list">
               {genres.map(genre => (
-                <li>{genre.name} </li>
+                <li key={genre.id}>{genre.name} </li>
               ))}
             </ul>
             <p className="details-overview">{overview}</p>
