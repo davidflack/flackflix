@@ -4,7 +4,7 @@ export const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${
 }&language=en-US&query=`;
 export const posterUrl = "https://image.tmdb.org/t/p/w342";
 export const backdropUrl = "https://image.tmdb.org/t/p/w1280";
-export const actorUrl = "https://image.tmdb.org/t/p/w185";
+export const headshotUrl = "https://image.tmdb.org/t/p/w185";
 export const genres = {
   28: "Action",
   12: "Adventure",

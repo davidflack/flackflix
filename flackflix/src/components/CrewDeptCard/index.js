@@ -1,5 +1,5 @@
 import React from "react";
-import { actorUrl } from "../../variables";
+import { headshotUrl } from "../../variables";
 const CrewDeptCard = props => {
   return (
     <div>
@@ -7,7 +7,7 @@ const CrewDeptCard = props => {
       {props.crewMembers.map(member => {
         const headshot = {
           photo: member.profile_path
-            ? `${actorUrl}${member.profile_path}`
+            ? `${headshotUrl}${member.profile_path}`
             : require("../../assets/user-alt-solid.svg"),
           alt: member.profile_path
             ? `${member.name}'s headshot.`
