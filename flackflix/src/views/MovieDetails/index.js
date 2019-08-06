@@ -7,6 +7,7 @@ import Related from "../Related";
 import Recommended from "../Recommended";
 import Reviews from "../ReviewsPage";
 import Cast from "../../components/Cast";
+import CrewList from "../../components/CrewList";
 const MovieDetails = props => {
   const [loading, movieData] = useFetch(
     `${baseUrl}/${props.match.params.movieId}?api_key=${
@@ -62,6 +63,9 @@ const MovieDetails = props => {
               <NavLink to={`/movie/${props.match.params.movieId}/cast`}>
                 Cast
               </NavLink>
+              <NavLink to={`/movie/${props.match.params.movieId}/crew`}>
+                Crew
+              </NavLink>
               <NavLink to={`/movie/${props.match.params.movieId}/reviews`}>
                 Reviews
               </NavLink>
@@ -83,6 +87,18 @@ const MovieDetails = props => {
           path="/movie/:movieId/cast"
           render={props => (
             <Cast
+              {...props}
+              url={`${baseUrl}/${props.match.params.movieId}/credits?api_key=${
+                process.env.REACT_APP_API_KEY
+              }&language=en-US`}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/movie/:movieId/crew"
+          render={props => (
+            <CrewList
               {...props}
               url={`${baseUrl}/${props.match.params.movieId}/credits?api_key=${
                 process.env.REACT_APP_API_KEY

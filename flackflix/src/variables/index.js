@@ -26,3 +26,9 @@ export const genres = {
   10752: "War",
   37: "Western"
 };
+export const groupByCrewDept = dept => crewList =>
+  crewList.reduce((objectsByKeyValue, obj) => {
+    const value = obj[dept];
+    objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
+    return objectsByKeyValue;
+  }, {});
