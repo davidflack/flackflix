@@ -13,17 +13,24 @@ const Cast = props => {
     content = (
       <div className="cast-list-container">
         {cast.map(castMember => {
+          const headshot = {
+            photo: castMember.profile_path
+              ? `${actorUrl}${castMember.profile_path}`
+              : require("../../assets/user-alt-solid.svg"),
+            alt: castMember.profile_path
+              ? `${castMember.name}'s headshot.`
+              : `Placeholder headshot for ${
+                  castMember.name
+                }. Made by FontAwesome under creative commons license: https://fontawesome.com/license`
+          };
           return (
-            <div key={castMember.cast_id} className="cast-listing">
+            <div className="cast-listing" key={castMember.cast_id}>
               <div className="headshot-container">
-                <img
-                  src={`${actorUrl}${castMember.profile_path}`}
-                  alt={`${castMember.name}'s headshot.`}
-                />
+                <img src={headshot.photo} alt={headshot.alt} />
               </div>
-              <div>
-                <p>{castMember.name}</p>
-                <p>{castMember.character}</p>
+              <div className="name-character">
+                <p className="actor-name">{castMember.name}</p>
+                <p className="character">{castMember.character}</p>
               </div>
             </div>
           );
