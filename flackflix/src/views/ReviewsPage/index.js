@@ -28,7 +28,9 @@ const Reviews = props => {
   let content = <Loading />;
   if (!loading && reviews) {
     if (reviewData.results.length === 0) {
-      content = <h2>There are no reviews for this film.</h2>;
+      content = (
+        <h2 className="no-reviews">There are no reviews for this film.</h2>
+      );
     } else if (reviewData.total_pages === 1) {
       content = reviews.map(review => (
         <Review
