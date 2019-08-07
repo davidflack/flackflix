@@ -5,4 +5,35 @@
     display: flex;
     flex-wrap: wrap;
   }
+  .button-container {
+    width: 20%;
+    margin: 0 auto;
+    display: flex;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    button {
+      border: 1px solid $green-highlight;
+      border-radius: 5px;
+      color: white;
+      background-color: $green-highlight;
+      padding: 10px 35px;
+      font-size: 1.5rem;
+      box-shadow: $card-shadow;
+      transition: $card-hover-transition;
+      &:hover {
+        transform: scale(1.01);
+        box-shadow: $hover-shadow;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .disabled {
+      background-color: $app-background;
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
 }

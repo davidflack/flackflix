@@ -56,10 +56,18 @@ const MovieList = props => {
     <div className="movie-list">
       {content}
       <div className="button-container">
-        <button onClick={decrementPage} disabled={pageNum <= 1}>
+        <button
+          onClick={decrementPage}
+          disabled={pageNum <= 1}
+          className={pageNum <= 1 && "disabled"}
+        >
           Back
         </button>
-        <button onClick={incrementPage} disabled={pageNum >= maxPages}>
+        <button
+          onClick={incrementPage}
+          disabled={pageNum >= maxPages}
+          className={pageNum >= maxPages && "disabled"}
+        >
           Next
         </button>
       </div>
