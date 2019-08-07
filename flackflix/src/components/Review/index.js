@@ -2,9 +2,9 @@ import React from "react";
 
 const Review = props => {
   return (
-    <div>
-      <h2>{props.author}:</h2>
-      <p>{props.content}</p>
+    <div className="review">
+      <h2 className="review-author">{props.author} writes:</h2>
+      <p className="review-content">"{props.content}"</p>
     </div>
   );
 };

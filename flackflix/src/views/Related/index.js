@@ -4,7 +4,6 @@ import MovieList from "../../components/MovieList";
 const Related = props => {
   return (
     <div>
-      <h2>More Like This</h2>
       <MovieList
         showHighlight={false}
         url={`${baseUrl}/${props.match.params.movieId}/similar?api_key=${

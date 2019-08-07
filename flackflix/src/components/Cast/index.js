@@ -1,6 +1,6 @@
 import React from "react";
 import Loading from "../../components/Loading";
-import { actorUrl } from "../../variables";
+import { headshotUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 const Cast = props => {
   const [loading, castData] = useFetch(props.url, [props.match.params.movieId]);
@@ -15,7 +15,7 @@ const Cast = props => {
         {cast.map(castMember => {
           const headshot = {
             photo: castMember.profile_path
-              ? `${actorUrl}${castMember.profile_path}`
+              ? `${headshotUrl}${castMember.profile_path}`
               : require("../../assets/user-alt-solid.svg"),
             alt: castMember.profile_path
               ? `${castMember.name}'s headshot.`

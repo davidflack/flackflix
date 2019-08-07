@@ -1,0 +1,18 @@
+@import "../../main-styles/Variables.scss";
+
+.review {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $green-highlight;
+  &:last-child {
+    border-bottom: none;
+  }
+  .review-author {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .review-content {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+}

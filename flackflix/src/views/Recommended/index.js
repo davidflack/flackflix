@@ -5,7 +5,6 @@ import MovieList from "../../components/MovieList";
 const Recommended = props => {
   return (
     <div>
-      <h2>Viewers Also Recommend...</h2>
       <MovieList
         showHighlight={false}
         url={`${baseUrl}/${
