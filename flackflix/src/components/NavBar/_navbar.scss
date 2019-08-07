@@ -1,7 +1,7 @@
 @import "../../main-styles/Variables.scss";
 
 .navbar-container {
-  padding: 15px 0;
+  padding: 15px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,24 +9,47 @@
     color: $green-highlight;
     font-weight: 700;
     font-size: 4rem;
-  }
+    @media (max-width: $mobile) {
+      font-size: 2rem;
+    }
+  } // .logo
   .nav-link-container {
     width: 30%;
     display: flex;
     justify-content: space-evenly;
+    @media (max-width: $tablet) {
+      width: 50%;
+    }
+    @media (max-width: $mobile) {
+      display: none;
+    }
     a {
       color: white;
       text-decoration: none;
       padding-bottom: 2px;
       font-size: 2rem;
       transition: all 0.25s;
+      @media (max-width: $mobile) {
+        font-size: 1.25rem;
+      }
     }
     .active {
       color: $green-highlight;
       border-bottom: 2px solid $green-highlight;
     }
   } // .nav-link-container
-
+  .mobile-browse-button {
+    font-size: 1.5rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      user-select: none;
+    }
+    @media (min-width: $mobile) {
+      display: none;
+    }
+  }
   .searchbar-container {
     input {
       padding: 10px 20px;
@@ -40,6 +63,34 @@
       &:focus {
         outline: none;
       }
+      @media (max-width: $mobile) {
+        padding: 5px 10px;
+      }
     }
+  } // .searchbar-container
+}
+
+.mobile-nav-link-container {
+  @media (min-width: $mobile) {
+    display: none;
   }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 10px;
+    &:hover {
+      background-color: lighten($app-background, 10%);
+    }
+  } // a
+} // .mobile-nav-link-container
+
+.mobile-nav-link-container-off {
+  display: none;
 }
