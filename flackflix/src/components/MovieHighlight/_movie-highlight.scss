@@ -17,6 +17,9 @@
     .highlight-title {
       font-size: 5rem;
       font-weight: 700;
+      @media (max-width: $mobile) {
+        font-size: 4rem;
+      }
     }
     .highlight-date-vote {
       display: flex;
