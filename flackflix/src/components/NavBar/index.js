@@ -23,11 +23,13 @@ const NavBar = props => {
             <NavLink to="/top-rated">Top Rated</NavLink>
             <NavLink to="/now-playing">Now Playing</NavLink>
           </div>
-          <div className="mobile-browse-button">
-            <p onClick={() => setBrowseMenu(!browseMenu)}>
-              Browse <i className="fas fa-sort-down" />
-            </p>
-          </div>
+          {!mobileSearch && (
+            <div className="mobile-browse-button">
+              <p onClick={() => setBrowseMenu(!browseMenu)}>
+                Browse <i className="fas fa-sort-down" />
+              </p>
+            </div>
+          )}
           <form className="searchbar-container" onSubmit={search}>
             <input
               type="text"
