@@ -49,8 +49,11 @@
     @media (min-width: $mobile) {
       display: none;
     }
-  }
+  } // .mobile-browse-button
   .searchbar-container {
+    @media (max-width: $mobile) {
+      display: none;
+    }
     input {
       padding: 10px 20px;
       font-family: $app-font;
@@ -68,7 +71,40 @@
       }
     }
   } // .searchbar-container
-}
+  .mobile-searchbar-container-off {
+    display: none;
+  }
+  .mobile-searchbar-container {
+    @media (min-width: $mobile) {
+      display: none;
+    }
+    input {
+      padding: 10px 20px;
+      font-family: $app-font;
+      font-size: 1.5rem;
+      text-align: center;
+      background-color: $input-background;
+      color: white;
+      border: 2px solid white;
+      border-radius: 3px;
+      &:focus {
+        outline: none;
+      }
+      @media (max-width: $mobile) {
+        padding: 5px 10px;
+      }
+    }
+  }
+  .fa-search,
+  .fa-times {
+    @media (min-width: $mobile) {
+      display: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+} // .navbar-container
 
 .mobile-nav-link-container {
   @media (min-width: $mobile) {
