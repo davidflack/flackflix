@@ -6,7 +6,7 @@ const SearchResults = props => {
     <div>
       <h2>Search Results for "{props.searchQuery}"</h2>
       <MovieList
-        showHighlight={true}
+        showHighlight={false}
         url={`${searchUrl}${props.match.params.searchQuery}`}
       />
     </div>
