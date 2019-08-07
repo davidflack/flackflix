@@ -15,7 +15,10 @@ const MovieHighlight = props => {
   return (
     <div
       style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backdropUrl}/${backdrop_path})`
+        background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backdropUrl}/${backdrop_path})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center"
       }}
       className="movie-highlight"
     >

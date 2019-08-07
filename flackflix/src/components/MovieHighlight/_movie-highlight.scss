@@ -3,6 +3,8 @@
 .movie-highlight {
   border-radius: 10px;
   height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin-bottom: 20px;
   box-shadow: $card-shadow;
   transition: $card-hover-transition;
@@ -30,8 +32,8 @@
       flex-direction: row;
       margin-bottom: 30px;
       li {
-        margin-right: 10px;
-        font-size: 1.5rem;
+        margin-right: 15px;
+        font-size: 2rem;
       }
     } // .genre-list
     .more-details-button {
