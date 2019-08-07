@@ -41,7 +41,7 @@ const MovieDetails = props => {
           <div className="details-info">
             <h2 className="details-title">{title}</h2>
             <div className="date-time-vote">
-              <p>{release_date}</p>
+              <p>{release_date.slice(0, 4)}</p>
               <p>{runtime} minutes</p>
               <p>{vote_average}/10</p>
             </div>
