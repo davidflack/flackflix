@@ -58,7 +58,6 @@ const Reviews = props => {
         </>
       );
     }
-    console.log("REVIEW DATA:", reviewData);
   }
   return <>{content}</>;
 };

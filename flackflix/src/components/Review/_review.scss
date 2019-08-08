@@ -4,6 +4,10 @@
   margin-bottom: 30px;
   padding-bottom: 15px;
   border-bottom: 1px solid $green-highlight;
+  @media (max-width: $mobile) {
+    padding: 20px;
+    margin-bottom: 10px;
+  }
   &:last-child {
     border-bottom: none;
   }
