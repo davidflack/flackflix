@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { genres, backdropUrl } from "../../variables";
-
+import PropTypes from "prop-types";
 const MovieHighlight = props => {
   const {
     id,
@@ -39,6 +39,17 @@ const MovieHighlight = props => {
       </div>
     </div>
   );
+};
+
+MovieHighlight.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    genre_ids: PropTypes.arrayOf(PropTypes.number).isRequired,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired
+  })
 };
 
 export default MovieHighlight;

@@ -4,7 +4,7 @@ import MovieHighlight from "../MovieHighlight";
 import MovieCard from "../MovieCard";
 import Loading from "../Loading";
 import { useFetch } from "../../hooks/useFetch";
-
+import PropTypes from "prop-types";
 const MovieList = props => {
   const [pageNum, setPageNum] = useState(1);
   const [loading, movieData] = useFetch(`${props.url}&page=${pageNum}`, [
@@ -67,7 +67,7 @@ const MovieList = props => {
           <button
             onClick={incrementPage}
             disabled={pageNum >= maxPages}
-            className={pageNum >= maxPages && "disabled"}
+            className={pageNum >= maxPages ? "disabled" : undefined}
           >
             Next
           </button>
@@ -75,6 +75,11 @@ const MovieList = props => {
       )}
     </div>
   );
+};
+
+MovieList.propTypes = {
+  showHighlight: PropTypes.bool.isRequired,
+  url: PropTypes.string.isRequired
 };
 
 export default withRouter(MovieList);

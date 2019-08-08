@@ -1,6 +1,8 @@
 import React from "react";
 import { headshotUrl } from "../../variables";
+import PropTypes from "prop-types";
 const CrewDeptCard = props => {
+  console.log("CREW PROPS", props);
   return (
     <>
       <h2 className="dept-title">{props.deptName} Team</h2>
@@ -17,7 +19,7 @@ const CrewDeptCard = props => {
                 }. Made by FontAwesome under creative commons license: https://fontawesome.com/license`
           };
           return (
-            <div className="crew-member-profile">
+            <div className="crew-member-profile" key={member.id}>
               <div className="headshot-container">
                 <img src={headshot.photo} alt={headshot.alt} />
               </div>
@@ -31,6 +33,17 @@ const CrewDeptCard = props => {
       </div>
     </>
   );
+};
+
+CrewDeptCard.propTypes = {
+  deptName: PropTypes.string.isRequired,
+  crewMembers: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      job: PropTypes.string,
+      profile_path: PropTypes.string
+    })
+  ).isRequired
 };
 
 export default CrewDeptCard;
