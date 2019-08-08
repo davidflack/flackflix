@@ -3,6 +3,7 @@ import Loading from "../Loading";
 import CrewDeptCard from "../CrewDeptCard";
 import { useFetch } from "../../hooks/useFetch";
 import { groupByCrewDept } from "../../variables";
+import PropTypes from "prop-types";
 const Crew = props => {
   const [loading, crewData] = useFetch(props.url, [props.match.params.movieId]);
   let crew = null;
@@ -27,6 +28,10 @@ const Crew = props => {
     );
   }
   return content;
+};
+
+Crew.propTypes = {
+  url: PropTypes.string.isRequired
 };
 
 export default Crew;

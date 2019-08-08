@@ -3,6 +3,7 @@ import Loading from "../../components/Loading";
 import Review from "../../components/Review";
 import { baseUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
+import PropTypes from "prop-types";
 const Reviews = props => {
   const [pageNum, setPageNum] = useState(1);
   const incrementPage = e => {
@@ -58,9 +59,12 @@ const Reviews = props => {
         </>
       );
     }
-    console.log("REVIEW DATA:", reviewData);
   }
   return <>{content}</>;
+};
+
+Reviews.propTypes = {
+  movieId: PropTypes.string.isRequired
 };
 
 export default Reviews;

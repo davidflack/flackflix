@@ -3,6 +3,8 @@
 .movie-highlight {
   border-radius: 10px;
   height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin-bottom: 20px;
   box-shadow: $card-shadow;
   transition: $card-hover-transition;
@@ -10,11 +12,17 @@
     transform: scale(1.01);
     box-shadow: $hover-shadow;
   }
+  @media (max-width: $mobile) {
+    background-position: center;
+  }
   .highlight-info {
     padding: 40vh 0px 0px 30px;
     .highlight-title {
       font-size: 5rem;
       font-weight: 700;
+      @media (max-width: $mobile) {
+        font-size: 4rem;
+      }
     }
     .highlight-date-vote {
       display: flex;
@@ -30,8 +38,8 @@
       flex-direction: row;
       margin-bottom: 30px;
       li {
-        margin-right: 10px;
-        font-size: 1.5rem;
+        margin-right: 15px;
+        font-size: 2rem;
       }
     } // .genre-list
     .more-details-button {

@@ -3,15 +3,24 @@
 .cast-list-container {
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: $mobile) {
+    padding: 0px 10px;
+  }
   .cast-listing {
     width: 50%;
     margin: 0 auto;
     margin-bottom: 5px;
     display: flex;
     align-items: center;
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
     .headshot-container {
       width: 130px;
       margin-right: 20px;
+      @media (max-width: $small-mobile) {
+        margin-right: 10px;
+      }
       img {
         width: 100%;
         height: auto;
@@ -23,9 +32,15 @@
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 10px;
+        @media (max-width: $mobile) {
+          font-size: 2.5rem;
+        }
       }
       .character {
         font-size: 1.5rem;
+        @media (max-width: $mobile) {
+          font-size: 2rem;
+        }
       }
     } // .name-character
   } // .cast-listing

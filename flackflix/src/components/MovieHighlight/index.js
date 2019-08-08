@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { genres, backdropUrl } from "../../variables";
-
+import PropTypes from "prop-types";
 const MovieHighlight = props => {
   const {
     id,
@@ -15,7 +15,10 @@ const MovieHighlight = props => {
   return (
     <div
       style={{
-        background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backdropUrl}/${backdrop_path})`
+        background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backdropUrl}/${backdrop_path})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center"
       }}
       className="movie-highlight"
     >
@@ -36,6 +39,17 @@ const MovieHighlight = props => {
       </div>
     </div>
   );
+};
+
+MovieHighlight.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    genre_ids: PropTypes.arrayOf(PropTypes.number).isRequired,
+    release_date: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired
+  })
 };
 
 export default MovieHighlight;

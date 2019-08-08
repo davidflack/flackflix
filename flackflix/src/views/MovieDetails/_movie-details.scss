@@ -9,16 +9,29 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: $mobile) {
+    height: auto;
+    background-position: center;
+  }
   &:hover {
     transform: scale(1.01);
     box-shadow: $hover-shadow;
   }
   .details-info {
     padding: 40vh 0px 0px 30px;
+    @media (max-width: $mobile) {
+      padding: 35px;
+    }
+    @media (max-width: $small-mobile) {
+      padding: 15px;
+    }
     .details-title {
       font-size: 5rem;
       font-weight: 700;
       margin-bottom: 5px;
+      @media (max-width: $mobile) {
+        font-size: 4rem;
+      }
     }
     .date-time-vote {
       display: flex;
@@ -41,6 +54,9 @@
     .details-overview {
       font-size: 2rem;
       width: 70%;
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
     }
   } // .details-info
   .details-link-shadow {
@@ -53,10 +69,16 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
       a {
         font-size: 2rem;
         color: white;
         text-decoration: none;
+        @media (max-width: $mobile) {
+          font-size: 1.5rem;
+        }
       }
       .active {
         color: $green-highlight;

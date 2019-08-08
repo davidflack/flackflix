@@ -2,6 +2,7 @@ import React from "react";
 import Loading from "../../components/Loading";
 import { headshotUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
+import PropTypes from "prop-types";
 const Cast = props => {
   const [loading, castData] = useFetch(props.url, [props.match.params.movieId]);
   let cast = null;
@@ -39,6 +40,10 @@ const Cast = props => {
     );
   }
   return content;
+};
+
+Cast.propTypes = {
+  url: PropTypes.string
 };
 
 export default Cast;
