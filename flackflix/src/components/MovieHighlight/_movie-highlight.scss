@@ -12,6 +12,9 @@
     transform: scale(1.01);
     box-shadow: $hover-shadow;
   }
+  @media (max-width: $mobile) {
+    background-position: center;
+  }
   .highlight-info {
     padding: 40vh 0px 0px 30px;
     .highlight-title {
