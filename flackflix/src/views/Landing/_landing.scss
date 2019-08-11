@@ -2,11 +2,20 @@
 
 .landing-page-container {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/popcorn.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media (max-width: $mobile) {
+    flex-direction: column-reverse;
+  }
   .landing-text-container {
-    width: 50%;
+    padding-top: 40vh;
+    padding-left: 40px;
     h1 {
       color: $green-highlight;
       font-size: 5rem;
@@ -26,6 +35,10 @@
       background-color: $green-highlight;
       box-shadow: $card-shadow;
       transition: $card-hover-transition;
+      @media (max-width: $mobile) {
+        width: 75%;
+        margin: 0 auto;
+      }
       &:hover {
         transform: scale(1.01);
         box-shadow: $hover-shadow;
@@ -33,14 +46,6 @@
       &:focus {
         outline: none;
       }
-    }
-  }
-  .landing-img-container {
-    width: 50%;
-    height: 100vh;
-    overflow: hidden;
-    img {
-      width: 100%;
-    }
-  }
+    } // .cta
+  } // .landing-text-container
 }

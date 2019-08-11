@@ -5,7 +5,8 @@ import Landing from "./views/Landing";
 import Popular from "./views/Popular";
 import TopRated from "./views/TopRated";
 import NowPlaying from "./views/NowPlaying";
-import ErrorPage from "./views/ErrorPage";
+import RoutingError from "./views/RoutingError";
+import HTTPError from "./views/HTTPError";
 import NavBar from "./components/NavBar";
 import MovieDetails from "./views/MovieDetails";
 import SearchResults from "./views/SearchResults";
@@ -36,7 +37,8 @@ function App() {
             />
           )}
         />
-        <Route path="*" render={props => <ErrorPage {...props} />} />
+        <Route path="/error" render={props => <HTTPError {...props} />} />
+        <Route path="*" render={props => <RoutingError {...props} />} />
       </Switch>
     </div>
   );

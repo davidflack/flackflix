@@ -1,6 +1,10 @@
 @import "../../main-styles/Variables.scss";
 
 .movie-list {
+  .no-movies {
+    font-size: 3rem;
+    text-align: center;
+  }
   .card-container {
     display: flex;
     flex-wrap: wrap;

@@ -4,10 +4,15 @@ import { headshotUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 import PropTypes from "prop-types";
 const Cast = props => {
-  const [loading, castData] = useFetch(props.url, [props.match.params.movieId]);
+  const [loading, castData, error] = useFetch(props.url, [
+    props.match.params.movieId
+  ]);
   let cast = null;
   if (castData) {
     cast = castData.cast;
+  }
+  if (error === true) {
+    props.history.push("/error");
   }
   let content = <Loading />;
   if (!loading && cast) {

@@ -9,7 +9,7 @@ import Reviews from "../ReviewsPage";
 import Cast from "../../components/Cast";
 import CrewList from "../../components/CrewList";
 const MovieDetails = props => {
-  const [loading, movieData] = useFetch(
+  const [loading, movieData, error] = useFetch(
     `${baseUrl}/${props.match.params.movieId}?api_key=${
       process.env.REACT_APP_API_KEY
     }&language=en-US`,
@@ -20,6 +20,9 @@ const MovieDetails = props => {
     movie = movieData;
   }
   let content = <Loading />;
+  if (error === true) {
+    props.history.push("/error");
+  }
   if (!loading && movie) {
     const {
       title,
