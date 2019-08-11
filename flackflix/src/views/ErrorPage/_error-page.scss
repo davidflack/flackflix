@@ -1,0 +1,17 @@
+@import "../../main-styles/Variables.scss";
+
+.error-page-container {
+  margin-top: 20px;
+  padding: 15px;
+  h2 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+  }
+  h3 {
+    font-size: 3rem;
+    margin-bottom: 8px;
+    .redirect-link {
+      color: $green-highlight;
+    }
+  }
+}
