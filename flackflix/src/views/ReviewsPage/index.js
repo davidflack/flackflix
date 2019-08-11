@@ -14,7 +14,7 @@ const Reviews = props => {
     e.preventDefault();
     setPageNum(pageNum - 1);
   };
-  const [loading, reviewData] = useFetch(
+  const [loading, reviewData, error] = useFetch(
     `${baseUrl}/${props.movieId}/reviews?api_key=${
       process.env.REACT_APP_API_KEY
     }&language=en-US&page=${pageNum}`,
@@ -25,6 +25,9 @@ const Reviews = props => {
   if (reviewData) {
     reviews = reviewData.results;
     maxPages = reviewData.total_pages;
+  }
+  if (error === true) {
+    props.history.push("/error");
   }
   let content = <Loading />;
   if (!loading && reviews) {

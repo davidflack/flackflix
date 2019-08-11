@@ -5,11 +5,16 @@ import { useFetch } from "../../hooks/useFetch";
 import { groupByCrewDept } from "../../variables";
 import PropTypes from "prop-types";
 const Crew = props => {
-  const [loading, crewData] = useFetch(props.url, [props.match.params.movieId]);
+  const [loading, crewData, error] = useFetch(props.url, [
+    props.match.params.movieId
+  ]);
   let crew = null;
   if (crewData) {
     crew = crewData.crew;
     crew = groupByCrewDept("department")(crew);
+  }
+  if (error === true) {
+    props.history.push("/error");
   }
   let content = <Loading />;
   if (!loading && crew) {

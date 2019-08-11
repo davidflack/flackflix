@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ErrorPage = () => {
+const RoutingError = () => {
   return (
     <div className="error-page-container">
       <h2>Uh-Oh!</h2>
@@ -16,4 +16,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default RoutingError;

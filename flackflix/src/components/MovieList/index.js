@@ -7,7 +7,7 @@ import { useFetch } from "../../hooks/useFetch";
 import PropTypes from "prop-types";
 const MovieList = props => {
   const [pageNum, setPageNum] = useState(1);
-  const [loading, movieData] = useFetch(`${props.url}&page=${pageNum}`, [
+  const [loading, movieData, error] = useFetch(`${props.url}&page=${pageNum}`, [
     pageNum,
     props.match.params.searchQuery,
     props.match.params.movieId
@@ -25,6 +25,9 @@ const MovieList = props => {
   if (movieData) {
     movies = movieData.results;
     maxPages = movieData.total_pages;
+  }
+  if (error === true) {
+    props.history.push("/error");
   }
   let content = <Loading />;
   // if finished loading & we have movie data...
