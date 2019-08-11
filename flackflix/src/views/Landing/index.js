@@ -13,9 +13,6 @@ const Landing = () => {
           Get Started
         </Link>
       </div>
-      <div className="landing-img-container">
-        <img src={require("../../assets/popcorn.jpg")} alt="Popcorn." />
-      </div>
     </div>
   );
 };
