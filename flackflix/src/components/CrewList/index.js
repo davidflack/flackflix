@@ -17,20 +17,31 @@ const Crew = props => {
     props.history.push("/error");
   }
   let content = <Loading />;
+  // if the load is successful
   if (!loading && crew) {
-    content = (
-      <div>
-        {Object.keys(crew).map(key => {
-          return (
-            <CrewDeptCard
-              deptName={key}
-              crewMembers={crew[key]}
-              key={`${key} department card`}
-            />
-          );
-        })}
-      </div>
-    );
+    // if there are no crew members in the database...
+    if (crewData.crew.length === 0) {
+      content = (
+        <h2 className="no-crew">
+          No crew members have been registered for this film.
+        </h2>
+      );
+    } else {
+      // if there are crew members in the database
+      content = (
+        <div>
+          {Object.keys(crew).map(key => {
+            return (
+              <CrewDeptCard
+                deptName={key}
+                crewMembers={crew[key]}
+                key={`${key} department card`}
+              />
+            );
+          })}
+        </div>
+      );
+    }
   }
   return content;
 };

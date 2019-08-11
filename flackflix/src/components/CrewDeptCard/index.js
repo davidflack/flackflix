@@ -2,7 +2,6 @@ import React from "react";
 import { headshotUrl } from "../../variables";
 import PropTypes from "prop-types";
 const CrewDeptCard = props => {
-  console.log("CREW PROPS", props);
   return (
     <>
       <h2 className="dept-title">{props.deptName} Team</h2>
