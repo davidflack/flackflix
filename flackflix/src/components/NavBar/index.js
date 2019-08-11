@@ -13,7 +13,7 @@ const NavBar = props => {
     props.history.push(`/search/${searchText}`);
     setSearchText("");
   };
-  console.log("NAV PROPS", props);
+  // HIDE NAVBAR ON LANDING PAGE
   if (props.location.pathname === "/") {
     return null;
   } else {

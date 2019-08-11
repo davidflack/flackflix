@@ -1,0 +1,46 @@
+@import "../../main-styles/Variables.scss";
+
+.landing-page-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .landing-text-container {
+    width: 50%;
+    h1 {
+      color: $green-highlight;
+      font-size: 5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .cta {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: $green-highlight;
+      box-shadow: $card-shadow;
+      transition: $card-hover-transition;
+      &:hover {
+        transform: scale(1.01);
+        box-shadow: $hover-shadow;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .landing-img-container {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+}
