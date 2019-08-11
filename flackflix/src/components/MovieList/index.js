@@ -27,34 +27,44 @@ const MovieList = props => {
     maxPages = movieData.total_pages;
   }
   let content = <Loading />;
+  // if finished loading & we have movie data...
   if (!loading && movies) {
-    if (pageNum === 1 && props.showHighlight === true) {
-      const firstMovie = movies[0];
-      content = (
-        <>
-          <div className="highlight-container">
-            <MovieHighlight movie={firstMovie} />
-          </div>
+    // if there are no movies returned from the database...
+    if (movieData.results.length === 0) {
+      content = <h2 className="no-movies">No movies found.</h2>;
+    } else {
+      // if there are movies returned from the database...
+      if (pageNum === 1 && props.showHighlight === true) {
+        // highlight the very first movie from the response
+        const firstMovie = movies[0];
+        content = (
+          <>
+            <div className="highlight-container">
+              <MovieHighlight movie={firstMovie} />
+            </div>
+            <div className="card-container">
+              {movies.slice(1).map(movie => (
+                <MovieCard key={movie.id} movie={movie} />
+              ))}
+            </div>
+          </>
+        );
+      } else {
+        // do not highlight the first movie on pages greater than 1
+        content = (
           <div className="card-container">
-            {movies.slice(1).map(movie => (
-              <MovieCard key={movie.id} movie={movie} />
+            {movies.map(movie => (
+              <MovieCard movie={movie} key={movie.id} />
             ))}
           </div>
-        </>
-      );
-    } else {
-      content = (
-        <div className="card-container">
-          {movies.map(movie => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
-        </div>
-      );
+        );
+      }
     }
   }
   return (
     <div className="movie-list">
       {content}
+      {/* Hide buttons if there is only one page of movies */}
       {maxPages > 1 && (
         <div className="button-container">
           <button
