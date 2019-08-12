@@ -6,7 +6,7 @@ const MovieCard = props => {
   const { title, poster_path, id } = props.movie;
   const imgSrc = poster_path
     ? `${posterUrl}/${poster_path}`
-    : require("../../assets/film-reel.jpg");
+    : require("../../assets/film-reel-poster.jpg");
   return (
     <div
       className="movie-card"
