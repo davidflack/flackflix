@@ -31,6 +31,8 @@
       &:hover {
         transform: scale(1.01);
         box-shadow: $hover-shadow;
+        background-color: lighten($color: $green-highlight, $amount: 5%);
+        border-color: lighten($color: $green-highlight, $amount: 5%);
       }
       &:focus {
         outline: none;
@@ -41,6 +43,8 @@
       &:hover {
         transform: none;
         box-shadow: none;
+        background-color: $app-background;
+        border-color: $green-highlight;
       }
     }
   }
