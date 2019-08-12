@@ -23,6 +23,7 @@ export const useFetch = (url, dependencies) => {
         setLoading(false);
         setError(true);
       });
+    // eslint-disable-next-line
   }, dependencies);
 
   return [isLoading, data, error];

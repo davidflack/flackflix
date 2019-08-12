@@ -22,4 +22,11 @@
       border-radius: 5px;
     }
   } // .card-img-container
+  .no-poster-title {
+    text-align: center;
+    font-size: 2rem;
+    @media (max-width: $mobile) {
+      font-size: 1.75rem;
+    }
+  }
 }

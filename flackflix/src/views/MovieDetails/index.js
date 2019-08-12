@@ -33,11 +33,14 @@ const MovieDetails = props => {
       runtime,
       vote_average
     } = movie;
+    const imgUrl = backdrop_path
+      ? `${backdropUrl}/${backdrop_path}`
+      : require("../../assets/film-reel-backdrop.jpg");
     content = (
       <>
         <div
           style={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backdropUrl}/${backdrop_path})`,
+            background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${imgUrl})`,
             backgroundPosition: "center"
           }}
           className="movie-details-container"
