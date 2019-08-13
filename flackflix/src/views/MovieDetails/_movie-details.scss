@@ -44,6 +44,7 @@
     .genre-list {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       margin-bottom: 30px;
       li {
         margin-right: 10px;
