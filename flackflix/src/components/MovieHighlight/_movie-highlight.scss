@@ -2,21 +2,31 @@
 
 .movie-highlight {
   border-radius: 10px;
-  height: 90vh;
+  height: 80vh;
+  max-height: 700px;
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 20px;
   box-shadow: $card-shadow;
   transition: $card-hover-transition;
-  &:hover {
-    transform: scale(1.01);
-    box-shadow: $hover-shadow;
+  @media (max-width: $tablet) {
+    height: 60vh;
   }
+  // for mobile flipped sideways (landscape mode)
+  @media (max-width: $tablet) and (max-height: 415px) {
+    height: 100vh;
+  }
+  // for mobile flipped sideways (landscape mode)
   @media (max-width: $mobile) {
     background-position: center;
   }
   .highlight-info {
-    padding: 40vh 0px 0px 30px;
+    padding: 20% 0px 0px 30px;
+    // for mobile flipped sideways (landscape mode)
+    @media (max-width: $tablet) and (max-height: 660px) {
+      padding-top: 10%;
+    }
+    // for mobile flipped sideways (landscape mode)
     .highlight-title {
       font-size: 5rem;
       font-weight: 700;
