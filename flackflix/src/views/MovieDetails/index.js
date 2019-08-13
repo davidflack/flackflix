@@ -62,12 +62,6 @@ const MovieDetails = props => {
           <div className="details-link-shadow">
             <div className="details-link-container">
               <NavLink exact to={`/movie/${props.match.params.movieId}`}>
-                More Like This
-              </NavLink>
-              <NavLink to={`/movie/${props.match.params.movieId}/recommended`}>
-                Recommended
-              </NavLink>
-              <NavLink to={`/movie/${props.match.params.movieId}/cast`}>
                 Cast
               </NavLink>
               <NavLink to={`/movie/${props.match.params.movieId}/crew`}>
@@ -76,22 +70,18 @@ const MovieDetails = props => {
               <NavLink to={`/movie/${props.match.params.movieId}/reviews`}>
                 Reviews
               </NavLink>
+              <NavLink to={`/movie/${props.match.params.movieId}/related`}>
+                More Like This
+              </NavLink>
+              <NavLink to={`/movie/${props.match.params.movieId}/recommended`}>
+                Recommended
+              </NavLink>
             </div>
           </div>
         </div>
         <Route
           exact
           path="/movie/:movieId"
-          render={props => <Related {...props} />}
-        />
-        <Route
-          exact
-          path="/movie/:movieId/recommended"
-          render={props => <Recommended {...props} />}
-        />
-        <Route
-          exact
-          path="/movie/:movieId/cast"
           render={props => (
             <Cast
               {...props}
@@ -119,6 +109,16 @@ const MovieDetails = props => {
           render={props => (
             <Reviews movieId={props.match.params.movieId} {...props} />
           )}
+        />
+        <Route
+          exact
+          path="/movie/:movieId/related"
+          render={props => <Related {...props} />}
+        />
+        <Route
+          exact
+          path="/movie/:movieId/recommended"
+          render={props => <Recommended {...props} />}
         />
       </>
     );
