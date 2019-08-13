@@ -15,6 +15,7 @@
     &:hover {
       transform: scale(1.01);
       box-shadow: $hover-shadow;
+      cursor: pointer;
     }
     img {
       width: 100%;

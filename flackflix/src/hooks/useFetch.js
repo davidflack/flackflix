@@ -15,7 +15,7 @@ export const useFetch = (url, dependencies) => {
       })
       .then(movieData => {
         setLoading(false);
-        console.log(movieData);
+        // console.log(movieData);
         setData(movieData);
       })
       .catch(err => {
