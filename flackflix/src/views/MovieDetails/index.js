@@ -71,7 +71,7 @@ const MovieDetails = props => {
                 Reviews
               </NavLink>
               <NavLink to={`/movie/${props.match.params.movieId}/related`}>
-                More Like This
+                Related<span className="hide-sm-mobile"> Titles</span>
               </NavLink>
               <NavLink to={`/movie/${props.match.params.movieId}/recommended`}>
                 Recommended

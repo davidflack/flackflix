@@ -1,8 +1,10 @@
 @import "../../main-styles/Variables.scss";
 .dept-title {
-  font-size: 2.5rem;
-  text-align: center;
+  font-size: 2.75rem;
   margin-bottom: 15px;
+  @media (max-width: $mobile) {
+    padding-left: 10px;
+  }
 }
 .crew-dept-card {
   display: flex;

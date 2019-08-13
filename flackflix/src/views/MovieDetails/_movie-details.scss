@@ -44,6 +44,7 @@
     .genre-list {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       margin-bottom: 30px;
       li {
         margin-right: 10px;
@@ -71,12 +72,20 @@
       @media (max-width: $tablet) {
         width: 100%;
       }
+      @media (max-width: $small-mobile) {
+        padding: 5px;
+      }
       a {
         font-size: 2rem;
         color: white;
         text-decoration: none;
         @media (max-width: $mobile) {
           font-size: 1.5rem;
+        }
+        .hide-sm-mobile {
+          @media (max-width: $small-mobile) {
+            display: none;
+          }
         }
       }
       .active {
