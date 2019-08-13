@@ -2,8 +2,6 @@
 
 .movie-details-container {
   border-radius: 10px;
-  height: 90vh;
-  max-height: 700px;
   margin-bottom: 20px;
   box-shadow: $card-shadow;
   transition: $card-hover-transition;
@@ -17,9 +15,11 @@
   }
   .details-info {
     padding: 20vh 0px 0px 30px;
+    margin-bottom: 50px;
     @media (max-width: $mobile) {
       padding: 35px;
       max-height: none;
+      margin-bottom: 10px;
     }
     @media (max-width: $small-mobile) {
       padding: 15px;
