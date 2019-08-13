@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 const NavBar = props => {
+  console.log("NAV PROPS", props);
   const [searchText, setSearchText] = useState("");
   const [mobileSearch, setMobileSearch] = useState(false);
   const [browseMenu, setBrowseMenu] = useState(false);
@@ -21,7 +22,16 @@ const NavBar = props => {
       <>
         <div>
           <div className="navbar-container">
-            <h1 className="logo" onClick={() => props.history.push("/popular")}>
+            <h1
+              className="logo"
+              onClick={() => {
+                if (props.location.pathname === "/popular") {
+                  window.location.reload();
+                } else {
+                  props.history.push("/popular");
+                }
+              }}
+            >
               FlackFlix
             </h1>
             <div className="nav-link-container">
