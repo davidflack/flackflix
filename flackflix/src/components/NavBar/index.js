@@ -21,7 +21,16 @@ const NavBar = props => {
       <>
         <div>
           <div className="navbar-container">
-            <h1 className="logo" onClick={() => props.history.push("/popular")}>
+            <h1
+              className="logo"
+              onClick={() => {
+                if (props.location.pathname === "/popular") {
+                  window.location.reload();
+                } else {
+                  props.history.push("/popular");
+                }
+              }}
+            >
               FlackFlix
             </h1>
             <div className="nav-link-container">
