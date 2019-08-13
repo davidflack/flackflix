@@ -21,7 +21,9 @@ const NavBar = props => {
       <>
         <div>
           <div className="navbar-container">
-            <h1 className="logo">FlackFlix</h1>
+            <h1 className="logo" onClick={() => props.history.push("/popular")}>
+              FlackFlix
+            </h1>
             <div className="nav-link-container">
               <NavLink to="/popular">Popular</NavLink>
               <NavLink to="/top-rated">Top Rated</NavLink>

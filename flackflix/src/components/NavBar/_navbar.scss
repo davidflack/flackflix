@@ -9,6 +9,9 @@
     color: $green-highlight;
     font-weight: 700;
     font-size: 4rem;
+    &:hover {
+      cursor: pointer;
+    }
     @media (max-width: $mobile) {
       font-size: 2rem;
     }
