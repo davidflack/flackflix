@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 const NavBar = props => {
-  console.log("NAV PROPS", props);
   const [searchText, setSearchText] = useState("");
   const [mobileSearch, setMobileSearch] = useState(false);
   const [browseMenu, setBrowseMenu] = useState(false);
