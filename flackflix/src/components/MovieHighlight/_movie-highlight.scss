@@ -3,20 +3,20 @@
 .movie-highlight {
   border-radius: 10px;
   height: 90vh;
+  max-height: 700px;
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 20px;
   box-shadow: $card-shadow;
   transition: $card-hover-transition;
-  &:hover {
-    transform: scale(1.01);
-    box-shadow: $hover-shadow;
+  @media (max-width: $tablet) {
+    height: 60vh;
   }
   @media (max-width: $mobile) {
     background-position: center;
   }
   .highlight-info {
-    padding: 40vh 0px 0px 30px;
+    padding: 20% 0px 0px 30px;
     .highlight-title {
       font-size: 5rem;
       font-weight: 700;

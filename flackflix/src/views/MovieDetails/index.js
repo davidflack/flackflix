@@ -40,7 +40,7 @@ const MovieDetails = props => {
       <>
         <div
           style={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${imgUrl})`,
+            background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${imgUrl})`,
             backgroundPosition: "center"
           }}
           className="movie-details-container"
