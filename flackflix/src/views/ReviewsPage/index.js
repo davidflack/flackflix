@@ -39,12 +39,14 @@ const Reviews = props => {
     } else {
       content = (
         <>
-          <button onClick={decrement} disabled={page <= 1}>
-            Back
-          </button>
-          <button onClick={increment} disabled={page >= maxPages}>
-            Next
-          </button>
+          <div className="button-container">
+            <button onClick={decrement} disabled={page <= 1}>
+              Back
+            </button>
+            <button onClick={increment} disabled={page >= maxPages}>
+              Next
+            </button>
+          </div>
           {reviews.map(review => (
             <Review
               key={review.id}
