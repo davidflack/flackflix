@@ -1,24 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Loading from "../../components/Loading";
 import Review from "../../components/Review";
 import { baseUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
+import { usePagination } from "../../hooks/usePagination";
 import PropTypes from "prop-types";
 const Reviews = props => {
-  const [pageNum, setPageNum] = useState(1);
-  const incrementPage = e => {
-    e.preventDefault();
-    setPageNum(pageNum + 1);
-  };
-  const decrementPage = e => {
-    e.preventDefault();
-    setPageNum(pageNum - 1);
-  };
+  const [page, increment, decrement] = usePagination();
   const [loading, reviewData, error] = useFetch(
     `${baseUrl}/${props.movieId}/reviews?api_key=${
       process.env.REACT_APP_API_KEY
-    }&language=en-US&page=${pageNum}`,
-    [pageNum, props.movieId]
+    }&language=en-US&page=${page}`,
+    [page, props.movieId]
   );
   let reviews = null;
   let maxPages = null;
@@ -46,10 +39,10 @@ const Reviews = props => {
     } else {
       content = (
         <>
-          <button onClick={decrementPage} disabled={pageNum <= 1}>
+          <button onClick={decrement} disabled={page <= 1}>
             Back
           </button>
-          <button onClick={incrementPage} disabled={pageNum >= maxPages}>
+          <button onClick={increment} disabled={page >= maxPages}>
             Next
           </button>
           {reviews.map(review => (
