@@ -37,15 +37,15 @@
       &:focus {
         outline: none;
       }
-    }
-    .disabled {
-      background-color: $app-background;
-      &:hover {
-        transform: none;
-        box-shadow: none;
+      &:disabled {
         background-color: $app-background;
-        border-color: $green-highlight;
-      }
-    }
-  }
+        &:hover {
+          transform: none;
+          box-shadow: none;
+          background-color: $app-background;
+          border-color: $green-highlight;
+        }
+      } // button:disabled
+    } // button
+  } // .button-container
 }

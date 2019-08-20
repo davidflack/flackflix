@@ -1,25 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import MovieHighlight from "../MovieHighlight";
 import MovieCard from "../MovieCard";
 import Loading from "../Loading";
 import { useFetch } from "../../hooks/useFetch";
+import { usePagination } from "../../hooks/usePagination";
 import PropTypes from "prop-types";
 const MovieList = props => {
-  const [pageNum, setPageNum] = useState(1);
-  const [loading, movieData, error] = useFetch(`${props.url}&page=${pageNum}`, [
-    pageNum,
+  const [page, increment, decrement] = usePagination();
+  const [loading, movieData, error] = useFetch(`${props.url}&page=${page}`, [
+    page,
     props.match.params.searchQuery,
     props.match.params.movieId
   ]);
-  const incrementPage = e => {
-    e.preventDefault();
-    setPageNum(pageNum + 1);
-  };
-  const decrementPage = e => {
-    e.preventDefault();
-    setPageNum(pageNum - 1);
-  };
   let movies = null;
   let maxPages = null;
   if (movieData) {
@@ -37,7 +30,8 @@ const MovieList = props => {
       content = <h2 className="no-movies">No movies found.</h2>;
     } else {
       // if there are movies returned from the database...
-      if (pageNum === 1 && props.showHighlight === true) {
+      if (page === 1 && props.showHighlight === true) {
+        // if (pageNum === 1 && props.showHighlight === true) {
         // highlight the very first movie from the response
         const firstMovie = movies[0];
         content = (
@@ -70,18 +64,10 @@ const MovieList = props => {
       {/* Hide buttons if there is only one page of movies */}
       {maxPages > 1 && (
         <div className="button-container">
-          <button
-            onClick={decrementPage}
-            disabled={pageNum <= 1}
-            className={pageNum <= 1 && "disabled"}
-          >
+          <button onClick={decrement} disabled={page <= 1}>
             Back
           </button>
-          <button
-            onClick={incrementPage}
-            disabled={pageNum >= maxPages}
-            className={pageNum >= maxPages ? "disabled" : undefined}
-          >
+          <button onClick={increment} disabled={page >= maxPages}>
             Next
           </button>
         </div>
