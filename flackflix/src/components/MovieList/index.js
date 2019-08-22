@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import MovieHighlight from "../MovieHighlight";
 import MovieCard from "../MovieCard";
+import Buttons from "../PaginationButtons";
 import Loading from "../Loading";
 import { useFetch } from "../../hooks/useFetch";
 import { usePagination } from "../../hooks/usePagination";
@@ -63,14 +64,12 @@ const MovieList = props => {
       {content}
       {/* Hide buttons if there is only one page of movies */}
       {maxPages > 1 && (
-        <div className="button-container">
-          <button onClick={decrement} disabled={page <= 1}>
-            Back
-          </button>
-          <button onClick={increment} disabled={page >= maxPages}>
-            Next
-          </button>
-        </div>
+        <Buttons
+          decrement={decrement}
+          increment={increment}
+          page={page}
+          maxPages={maxPages}
+        />
       )}
     </div>
   );
