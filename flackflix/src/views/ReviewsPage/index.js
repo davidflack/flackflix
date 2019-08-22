@@ -5,6 +5,7 @@ import { baseUrl } from "../../variables";
 import { useFetch } from "../../hooks/useFetch";
 import { usePagination } from "../../hooks/usePagination";
 import PropTypes from "prop-types";
+import Buttons from "../../components/PaginationButtons";
 const Reviews = props => {
   const [page, increment, decrement] = usePagination();
   const [loading, reviewData, error] = useFetch(
@@ -39,14 +40,12 @@ const Reviews = props => {
     } else {
       content = (
         <>
-          <div className="button-container">
-            <button onClick={decrement} disabled={page <= 1}>
-              Back
-            </button>
-            <button onClick={increment} disabled={page >= maxPages}>
-              Next
-            </button>
-          </div>
+          <Buttons
+            decrement={decrement}
+            increment={increment}
+            page={page}
+            maxPages={maxPages}
+          />
           {reviews.map(review => (
             <Review
               key={review.id}
